@@ -52,6 +52,20 @@ namespace ECommerceAPI
             // Register Background Services.
             builder.Services.AddBackgroundServices();
 
+
+            // Register CORS to allow requests from the Angular application.
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AngularCorsPolicy", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
+
+
             // Build the application.
             var app = builder.Build();
 
@@ -79,6 +93,9 @@ namespace ECommerceAPI
 
             // Redirect HTTP requests to HTTPS.
             app.UseHttpsRedirection();
+
+            // Enable CORS for the Angular application.
+            app.UseCors("AngularCorsPolicy");
 
             // Reads and validates authentication information
             // such as JWT Bearer Tokens.
