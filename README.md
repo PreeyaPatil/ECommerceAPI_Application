@@ -39,7 +39,7 @@ A full-lifecycle E-Commerce backend built with **ASP.NET Core Web API (.NET 10)*
 ### Setup Instructions
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com
+   git clone https://github.com/PreeyaPatil/ECommerceAPI_Application
    cd ECommerceAPI_Application/ECommerceAPI
    ```
 2. **Configure `appsettings.json`:**
